@@ -1,6 +1,6 @@
-## Backend Documentation: Sea Properties Platform (MERN Stack)
+## Backend Documentation: Hikmah Holdings Platform (MERN Stack)
 
-This document focuses on the backend of the Sea Properties platform, built using the MERN stack (MongoDB, Express, and Node.js).
+This document focuses on the backend of the Hikmah Holdings platform, built using the MERN stack (MongoDB, Express, and Node.js).
 
 **Tech Stack:**
 
@@ -78,3 +78,4 @@ This document focuses on the backend of the Sea Properties platform, built using
 * Mongoose Documentation (optional): [https://mongoosejs.com/](https://mongoosejs.com/)
 
 This is a basic template. You may need to modify it to reflect the specific features and architecture of your backend. Remember to keep it updated as your project evolves.
+# Hikmah-Holdings-Backend
