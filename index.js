@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const port = 7000;
 const cors = require('cors');
+const AuthRouter = require('./Modules/Authentication/AthenticationRouter');
 // const AuthRouter = require('./Modules/Auth/AuthRouter');
 
 
@@ -22,7 +23,7 @@ app.get('/api/v1/', (req, res) => {
 });
 
 
-// app.use('/api/v1/users', UserRouter);
+app.use('/api/v1/users', AuthRouter);
 
 
 
