@@ -25,28 +25,261 @@
                 <h3 class="text-lg font-medium leading-6 text-gray-900">API Endpoint 1</h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">Description of API Endpoint 1.</p>
             </div>
+
             <div class="border-t border-gray-200">
                 <dl>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Request Method</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">GET</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">Method</dd>
+                        <dt class="mt-1 text-sm text-gray-900 sm:col-span-2">Api</dt>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Endpoint URL</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">sea-properties-server.vercel.app/api/v1
-                        </dd>
+
+                    <!-- Blog Routes -->
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt>
+                            Blogs
+                        </dt>
+                        <dd class="text-white">query = blog_id={}</dd>
+
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Add Blog</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/add</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Update Blog</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/update</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Get All Blogs</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">
-                            sea-properties-server.vercel.app/api/v1/admin/blog/blogs
-                        </dd>
-                        <dt class="text-sm font-medium text-gray-500">Get Blog By Id</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">
-                            sea-properties-server.vercel.app/api/v1/admin/blog/get-blog
-                        </dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/blogs</code>
                     </div>
-                    <!-- Add more details as needed -->
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get Blog By ID</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/get-blog</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Delete Blog</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/delete</code>
+                    </div>
+
+                    <!-- Project Routes -->
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Project
+                        <dd class="text-white">query = project_id={}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Add Project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/add</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Update Project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/update</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get All Projects</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/projects</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get Project By ID</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/get-project</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Delete Project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/delete</code>
+                    </div>
+
+                    <!-- Installment Routes -->
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Installment
+                        <dd class="text-white">query = installment_id={}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Add Installment</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/add</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Update Installment</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/update</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get All Installments</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/installments</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get Installment By ID</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/get-installment</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Delete Installment</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/delete</code>
+                    </div>
+
+                    <!-- Newsletter Routes -->
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Newsletter
+                        <dd class="text-white">query = news-letter_id={}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Add Newsletter</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/add</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Delete Newsletter By ID</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/delete-by-id</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get All Newsletters</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/get</code>
+                    </div>
+
+                    <!-- Booking Routes -->
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Booking
+                        <dd class="text-white">query = booking_id={}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Add Booking</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/add</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Update Booking</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/update</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get All Bookings</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/bookings</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Get Booking By ID</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/get-booking</code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Delete Booking</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/delete</code>
+                    </div>
                 </dl>
             </div>
+
+            <!-- <div class="border-t border-gray-200">
+                <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Request Method</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">Method</dd>
+                        <dt class="mt-1 text-sm text-gray-900 sm:col-span-2">Api</dt>
+                    </div>
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Blogs
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Get All Blogs</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            GET
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                            /admin/blog/blogs
+                        </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Get All Blog By id</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            GET
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                                                /admin/blog/get-blog?blog_id=${blog_id}
+                                            </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Update Blog</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            PUT
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                            /admin/blog/update?blog_id={blog_id}
+                        </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Delete Blog</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            DELETE
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                            /admin/blog/delete?blog_id={blog_id}
+                        </code>
+                    </div>
+
+                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                        Project
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Get All Project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            GET
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                                                /admin/project/projects
+                                            </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Get All Project By id</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            GET
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+        /admin/project/get-project?project_id=${project_id}
+  </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Update project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            PUT
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                                                /admin/project/update?project_id={project_id}
+                                            </code>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+
+                        <dt class="text-sm font-medium text-gray-500">Delete project</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">
+                            DELETE
+                        </dd>
+                        <code class="mt-1 text-sm text-gray-900   sm:col-span-2">
+                                                /admin/project/delete?project_id={blog_id}
+                                            </code>
+                    </div>
+                </dl>
+            </div> -->
         </div>
 
         <!-- Add more API endpoints as needed -->
