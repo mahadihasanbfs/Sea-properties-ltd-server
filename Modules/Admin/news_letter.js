@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { newsletter_collection } = require("../../Collections/admin_collection");
 
 
@@ -21,7 +22,7 @@ const delete_newsletter_by_id = async (req, res, next) => {
     const id = req.query.newsletter_id;
 
     try {
-        const result = await newsletter_collection.deleteOne({ _id: ObjectId(id) });
+        const result = await newsletter_collection.deleteOne({ _id: new ObjectId(id) });
 
         if (result.deletedCount > 0) {
             res.send({
