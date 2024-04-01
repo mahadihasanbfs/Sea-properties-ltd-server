@@ -22,7 +22,7 @@ const update_booking = async (req, res, next) => {
     const update = req.body;
 
     try {
-        const result = await booking_collection.updateOne({ _id: ObjectId(id) }, { $set: update });
+        const result = await booking_collection.updateOne({ _id: new ObjectId(id) }, { $set: update });
         if (result.modifiedCount > 0) {
             res.send({
                 status: true,
@@ -47,7 +47,7 @@ const get_booking_by_id = async (req, res, next) => {
 
     try {
         const pipeline = [
-            { $match: { _id: ObjectId(id) } }
+            { $match: { _id: new ObjectId(id) } }
         ];
 
         const result = await booking_collection.aggregate(pipeline).toArray();
@@ -75,7 +75,7 @@ const delete_booking = async (req, res, next) => {
     const id = req.query.booking_id;
 
     try {
-        const result = await booking_collection.deleteOne({ _id: ObjectId(id) });
+        const result = await booking_collection.deleteOne({ _id: new ObjectId(id) });
 
         if (result.deletedCount > 0) {
             res.send({
