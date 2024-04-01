@@ -1,7 +1,8 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 require("dotenv").config();
 
-const uri = mongodb+srv://${process.env.DB}:${process.env.DB}@cluster0.hhmsmpq.mongodb.net/?retryWrites=true&w=majority;
+const uri = `mongodb+srv://sea-property-ltd:sea-property-ltd@sea-property-ltd.swfflkv.mongodb.net/?retryWrites=true&w=majority&appName=sea-property-ltd`;
+// const uri = "mongodb://localhost:27017";
 
 // MongoDB Connection
 const client = new MongoClient(uri, {
@@ -9,6 +10,6 @@ const client = new MongoClient(uri, {
     serverApi: ServerApiVersion.v1,
 });
 
-const ImagesCollections = client.db('Image').collection("Images");
+const image_collection = client.db('Image').collection("Images");
 
-module.exports = { ImagesCollections }
+module.exports = { image_collection }
