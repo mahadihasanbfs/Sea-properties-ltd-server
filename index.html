@@ -4,11 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Api Documentation</title>
+    <title>API Documentation</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Favicon and Meta Tags -->
+    <link rel="icon" href="favion.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favion.ico" type="image/x-icon">
+    <meta name="description" content="API Documentation for your website">
+    <meta name="keywords" content="API, Documentation, Endpoint">
+    <meta name="author" content="Bright Future Soft">
 </head>
 
-<body>
-    <h1>Hello world</h1>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">API Documentation</h1>
+
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-gray-900">API Endpoint 1</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">Description of API Endpoint 1.</p>
+            </div>
+            <div class="border-t border-gray-200">
+                <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Request Method</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">GET</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Endpoint URL</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">sea-properties-server.vercel.app/api/v1
+                        </dd>
+                        <dt class="text-sm font-medium text-gray-500">Get All Blogs</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">
+                            sea-properties-server.vercel.app/api/v1/admin/blog/blogs
+                        </dd>
+                        <dt class="text-sm font-medium text-gray-500">Get Blog By Id</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">
+                            sea-properties-server.vercel.app/api/v1/admin/blog/get-blog
+                        </dd>
+                    </div>
+                    <!-- Add more details as needed -->
+                </dl>
+            </div>
+        </div>
+
+        <!-- Add more API endpoints as needed -->
+
+    </div>
+
 </body>
 
 </html>
