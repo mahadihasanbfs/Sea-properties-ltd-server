@@ -6,9 +6,10 @@ const add_user = async (req, res, next) => {
 
   data.role = "user";
   data.createTime = new Date().getTime();
-  const hashedPassword = await hashPassword(data.password);
-
-  data.password = hashedPassword;
+  //   const hashedPassword = await hashPassword(data.password);
+  //   if (data?.password) {
+  //     data.password = hashedPassword;
+  //   }
 
   console.log(
     "🚀 ~ file: AuthenticationModule.js:6 ~ constadd_user= ~ data:",
@@ -16,7 +17,7 @@ const add_user = async (req, res, next) => {
   );
 
   const exist = await user_collection.findOne({ email: data.email });
-  console.log(exist,'======exist');
+  console.log(exist, "======exist");
   if (exist) {
     res.send({
       status: false,
