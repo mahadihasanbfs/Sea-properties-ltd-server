@@ -16,6 +16,7 @@ const add_user = async (req, res, next) => {
   );
 
   const exist = await user_collection.findOne({ email: data.email });
+  console.log(exist,'======exist');
   if (exist) {
     res.send({
       status: false,
@@ -28,6 +29,7 @@ const add_user = async (req, res, next) => {
       message: "User Added Successfully",
       data: result,
     });
+    console.log(result);
   }
 };
 
