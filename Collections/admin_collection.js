@@ -17,6 +17,8 @@ const project_collection = client.db("projects").collection("project");
 const installment_collection = client.db("projects").collection("installment");
 const booking_collection = client.db("projects").collection("booking");
 const testimonial_colection= client.db("projects").collection("testimonial");
+const serial_number_collection = client.db("projects").collection("serial")
+const land_registration_collection = client.db("projects").collection("land_registration")
 
 module.exports = {
   blog_collection,
@@ -26,4 +28,6 @@ module.exports = {
   contact_collection,
   booking_collection,
   testimonial_colection,
+  serial_number_collection,
+  land_registration_collection
 };
