@@ -45,17 +45,17 @@ const {
 } = require("../Modules/Admin/Contact");
 
 const {
-  add_testimonial, get_testimonials, delete_testimonial 
+  add_testimonial, get_testimonials, delete_testimonial
 } = require('../Modules/Admin/Testimonial')
 
- const {
+const {
   get_serialized_booking,
   get_preview,
   get_all_land,
   get_user_land,
   delete_land_registration,
   edit_land_registration,
-  add_land_registration} = require('../Modules/Admin/user_history')
+  add_land_registration } = require('../Modules/Admin/user_history')
 
 //blogs router:
 
@@ -99,20 +99,20 @@ router.get("/contacts", get_all_contacts);
 router.delete("/contact/delete", delete_contact_by_id);
 
 
-router.post("/testimonial",add_testimonial );
-router.get('/testimonial',get_testimonials )
-router.delete('/testimonial',delete_testimonial )
+router.post("/testimonial", add_testimonial);
+router.get('/testimonial', get_testimonials)
+router.delete('/testimonial', delete_testimonial)
 
 
 router.get('/serial-number', get_serialized_booking)
-
+router.delete("/delete-land-registration", delete_land_registration)
 
 router.post('/add-land-registration', add_land_registration)
 router.get("/all-land-registration", get_all_land)
 router.get("/user-land-registration", get_user_land)
 router.get("/single-land-registration", get_preview)
 router.put("/edit-land-registration", edit_land_registration)
-router.delete("/delete-land-registration", delete_land_registration)
+
 
 
 
