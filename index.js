@@ -5,6 +5,7 @@ const port = 5001;
 const cors = require("cors");
 const auth_controller = require("./Modules/Authentication/AthenticationRouter");
 const admin_controller = require("./Router/AdminRouter");
+const user_controller = require("./Router/UserController");
 const image_controller = require("./Modules/Image/ImageRouter");
 // const AuthRouter = require('./Modules/Auth/AuthRouter');
 
@@ -23,6 +24,7 @@ app.get("/api/v1/", (req, res) => {
 app.use("/api/v1/users", auth_controller);
 app.use("/api/v1/admin", admin_controller);
 app.use("/api/v1/image", image_controller);
+app.use("/api/v1/user", user_controller);
 
 // Error Handling Middleware
 app.use((req, res, next) => {
