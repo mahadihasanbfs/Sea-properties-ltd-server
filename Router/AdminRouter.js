@@ -23,6 +23,7 @@ const {
   get_all_installments,
   get_installment_by_id,
   delete_installment,
+  get_installment_by_email,
 } = require("../Modules/Admin/Installment");
 
 const {
@@ -63,6 +64,7 @@ router.post("/installment/add", add_installment);
 router.put("/installment/update", update_installment);
 router.get("/installment/installments", get_all_installments);
 router.get("/installment/get-installment", get_installment_by_id);
+router.get("/installment/get-installment-email", get_installment_by_email);
 router.delete("/installment/delete", delete_installment);
 
 //news letter

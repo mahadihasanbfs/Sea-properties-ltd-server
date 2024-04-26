@@ -10,6 +10,7 @@ const add_installment = async (req, res, next) => {
     res.send({
       status: true,
       message: "Your installment uploaded successfully",
+      data: result,
     });
   } catch (err) {
     res.status(500).send({
@@ -73,6 +74,37 @@ const get_installment_by_id = async (req, res, next) => {
     });
   }
 };
+const get_installment_by_email = async (req, res, next) => {
+  const email = req.query.email; // Assuming 'email' in the query contains the email
+
+  try {
+    const pipeline = [
+      { $match: { email } }, // Match based on the email
+    ];
+
+    const result = await installment_collection.aggregate(pipeline).toArray();
+
+    if (result.length > 0) {
+      res.send({
+        status: true,
+        data: result,
+      });
+    } else {
+      res.status(404).send({
+        status: false,
+        message: "No installments found for the provided email",
+      });
+    }
+  } catch (err) {
+    res.status(500).send({
+      status: false,
+      message: "Failed to fetch installments",
+    });
+  }
+};
+
+
+
 
 const delete_installment = async (req, res, next) => {
   const id = req.query.installment_id;
@@ -105,7 +137,12 @@ const delete_installment = async (req, res, next) => {
 
 const get_all_installments = async (req, res, next) => {
   try {
-    const result = await installment_collection.find({}).toArray();
+    const result = await installment_collection
+      .aggregate([
+        { $addFields: { installmentNumber: { $toInt: "$installment" } } }, // Convert installment to a number
+        { $sort: { email: 1, installmentNumber: 1 } }, // Sort by email and then by installment
+      ])
+      .toArray();
 
     res.send({
       status: true,
@@ -125,4 +162,5 @@ module.exports = {
   get_installment_by_id,
   delete_installment,
   get_all_installments,
+  get_installment_by_email,
 };
