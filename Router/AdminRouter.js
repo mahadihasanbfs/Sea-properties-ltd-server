@@ -44,6 +44,10 @@ const {
   delete_contact_by_id,
 } = require("../Modules/Admin/Contact");
 
+const {
+  add_testimonial, get_testimonials, delete_testimonial 
+} = require('../Modules/Admin/Testimonial')
+
 //blogs router:
 
 router.post("/blog/add", add_blog);
@@ -84,5 +88,12 @@ router.delete("/booking/delete", delete_booking);
 router.get("/contacts", get_all_contacts);
 // router.get("/contact/get-contact", get_contact_by_id);
 router.delete("/contact/delete", delete_contact_by_id);
+
+
+router.post("/testimonial",add_testimonial );
+router.get('/testimonial',get_testimonials )
+router.delete('/testimonial',delete_testimonial )
+
+
 
 module.exports = router;

@@ -16,6 +16,7 @@ const contact_collection = client.db("content").collection("contact");
 const project_collection = client.db("projects").collection("project");
 const installment_collection = client.db("projects").collection("installment");
 const booking_collection = client.db("projects").collection("booking");
+const testimonial_colection= client.db("projects").collection("testimonial");
 
 module.exports = {
   blog_collection,
@@ -24,4 +25,5 @@ module.exports = {
   newsletter_collection,
   contact_collection,
   booking_collection,
+  testimonial_colection,
 };
