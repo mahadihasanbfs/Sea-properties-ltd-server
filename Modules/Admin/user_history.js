@@ -1,5 +1,5 @@
 
-const { serial_number_collection ,land_registration_collection} = require('../../Collections/admin_collection');
+const { serial_number_collection, land_registration_collection } = require('../../Collections/admin_collection');
 
 const get_serialized_booking = async (req, res, next) => {
     try {
@@ -33,7 +33,7 @@ const add_land_registration = async (req, res, next) => {
 const get_preview = async (req, res, next) => {
     console.log(req.query.id, '*******')
     try {
-        const query = { _id: new ObjectId(req.query.id) }; 
+        const query = { _id: new ObjectId(req.query.id) };
         console.log(query, '******')
         // Corrected object property name
         const data = await land_registration_collection.findOne(query);
@@ -47,17 +47,17 @@ const get_preview = async (req, res, next) => {
 const get_user_land = async (req, res, next) => {
     try {
         const query = { userEmail: req.query.email }; // Corrected object property name
-        const datas = await land_registration_collection.find(query).sort({date : -1}).toArray();
+        const datas = await land_registration_collection.find(query).sort({ date: -1 }).toArray();
         res.send({ status: true, length: datas.length, data: datas }); // Corrected 'length' typo
     } catch (err) {
         next(err); // Forwarding error to the error handling middleware
     }
 };
 
-const get_all_land = async(req,res,next)=>{
+const get_all_land = async (req, res, next) => {
 
     const resutl = await land_registration_collection.find({}).toArray()
-    res.send({ status: true, length: datas.length, data: resutl }); // Corrected 'length' typo
+    res.send({ status: true, length: resutl.length, data: resutl }); // Corrected 'length' typo
 
 }
 
@@ -67,9 +67,6 @@ const delete_land_registration = async (req, res, next) => {
     try {
         const id = req.query.id;
         await land_registration_collection.deleteOne({ _id: new ObjectId(id) });
-
-        const io = req.app.get('socketio');
-        io.emit('bookingDeleted', id);
 
         res.send({
             status: true,
