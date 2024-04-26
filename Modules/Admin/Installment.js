@@ -10,6 +10,7 @@ const add_installment = async (req, res, next) => {
     res.send({
       status: true,
       message: "Your installment uploaded successfully",
+      data: result,
     });
   } catch (err) {
     res.status(500).send({
@@ -105,7 +106,12 @@ const delete_installment = async (req, res, next) => {
 
 const get_all_installments = async (req, res, next) => {
   try {
-    const result = await installment_collection.find({}).toArray();
+    const result = await installment_collection
+      .aggregate([
+        { $addFields: { installmentNumber: { $toInt: "$installment" } } }, // Convert installment to a number
+        { $sort: { email: 1, installmentNumber: 1 } }, // Sort by email and then by installment
+      ])
+      .toArray();
 
     res.send({
       status: true,
