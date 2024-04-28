@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { user_collection } = require("../../Collections/UserCollection");
 const hashPassword = require("../../helpers/authHelper");
 
@@ -67,4 +68,42 @@ const get_user_all = async (req, res, next) => {
   }
 };
 
-module.exports = { add_user, get_user, get_user_all };
+const delete_user = async (req, res, next) => {
+  try {
+    const id = req.query.id;
+    const result = await user_collection.deleteOne({ _id: new ObjectId(id) });
+    res.send({
+      status: true,
+      message: "User Deleted Successfully",
+      data: id,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const update_user = async (req, res, next) => {
+  try {
+    const id = req.query.id;
+    console.log(req.query);
+    const data = req.body;
+    const result = await user_collection.updateOne(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          name: data.name,
+          email: data.email
+        }
+      }
+    );
+    res.send({
+      status: true,
+      message: "User Updated Successfully",
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { add_user, get_user, get_user_all, update_user, delete_user };
