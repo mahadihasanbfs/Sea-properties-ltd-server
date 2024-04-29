@@ -31,7 +31,7 @@ const update_news_events = async(req,res,next)=>{
     }
 }
 
-const delete_newsletter_by_id = async(req,res,next)=>{
+const delete_news_event_by_id = async(req,res,next)=>{
     const id = req.query.id 
     try {
         const result = await news_events_collection.deleteOne({ _id: new ObjectId(id) });
@@ -77,6 +77,6 @@ module.exports = {
     add_news_events,
     update_news_events,
     get_all_news_events,
-    delete_newsletter_by_id,
+    delete_news_event_by_id,
     get_news_events_events_by_id
 }

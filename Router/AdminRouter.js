@@ -60,6 +60,7 @@ const {
 
 
 const { add_banner, update_banner, get_all_banners, get_banner_by_id, delete_banner } = require('../Modules/Admin/Banner');
+const { get_all_news_events, add_news_events, update_news_events, delete_news_event_by_id, get_news_events_events_by_id } = require("../Modules/Admin/NewsEvents");
 //blogs router:
 
 router.post("/blog/add", add_blog);
@@ -125,7 +126,19 @@ router.get('/banner/banners', get_all_banners)
 router.get('/banner/get-banner', get_banner_by_id);
 router.delete('/banner/delete', delete_banner);
 
+
+// add_news_events,
+//     update_news_events,
+//     get_all_news_events,
+//     delete_news_event_by_id,
+//     get_news_events_events_by_id
+
 //news events 
-// router.
+router.get('/get-news-events-by-id',  get_news_events_events_by_id)
+router.get('/news-events',get_all_news_events )
+router.post('/add-news-events', add_news_events)
+router.put('/update_news_event', update_news_events)
+router.delete('/delete_news_event', delete_news_event_by_id)
+
 
 module.exports = router;
