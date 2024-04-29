@@ -15,10 +15,11 @@ const contact_collection = client.db("content").collection("contact");
 const project_collection = client.db("projects").collection("project");
 const installment_collection = client.db("projects").collection("installment");
 const booking_collection = client.db("projects").collection("booking");
-const testimonial_colection= client.db("projects").collection("testimonial");
+const testimonial_collection= client.db("projects").collection("testimonial");
 const serial_number_collection = client.db("projects").collection("serial")
 const land_registration_collection = client.db("projects").collection("land_registration")
 const banner_collection = client.db('content').collection("banner");
+const news_events_collection = client.db('content').collection('news-events')
 
 module.exports = {
   blog_collection,
@@ -27,9 +28,10 @@ module.exports = {
   newsletter_collection,
   contact_collection,
   booking_collection,
-  testimonial_colection,
+  testimonial_collection,
   serial_number_collection,
   land_registration_collection,
-  banner_collection
+  banner_collection,
+  news_events_collection
 };
  

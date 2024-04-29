@@ -1,10 +1,10 @@
-const { testimonial_colection } = require('../../Collections/admin_collection');
+const { testimonial_collection } = require('../../Collections/admin_collection');
 
 // Add a testimonial
 const add_testimonial = async (req, res, next) => {
     try {
         const body = req.body;
-        const result = await testimonial_colection.insertOne(body);
+        const result = await testimonial_collection.insertOne(body);
         res.send(result);
     } catch (error) {
         next(error);
@@ -14,7 +14,7 @@ const add_testimonial = async (req, res, next) => {
 // Get all testimonials
 const get_testimonials = async (req, res, next) => {
     try {
-        const testimonials = await testimonial_colection.find({}).toArray();
+        const testimonials = await testimonial_collection.find({}).toArray();
         res.send(testimonials);
     } catch (error) {
         next(error);
@@ -25,7 +25,7 @@ const get_testimonials = async (req, res, next) => {
 const delete_testimonial = async (req, res, next) => {
     try {
         const testimonialId = req.params.id; // Assuming the ID is provided as a route parameter
-        const result = await testimonial_colection.deleteOne({ _id: ObjectId(testimonialId) });
+        const result = await testimonial_collection.deleteOne({ _id: ObjectId(testimonialId) });
         res.send(result);
     } catch (error) {
         next(error);

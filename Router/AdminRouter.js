@@ -125,4 +125,7 @@ router.get('/banner/banners', get_all_banners)
 router.get('/banner/get-banner', get_banner_by_id);
 router.delete('/banner/delete', delete_banner);
 
+//news events 
+// router.
+
 module.exports = router;

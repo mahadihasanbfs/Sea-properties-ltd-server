@@ -10,10 +10,7 @@ const add_banner = async (req, res, next) => {
             message: "Your banner uploaded successfully"
         });
     } catch (err) {
-        res.status(500).send({
-            status: false,
-            message: "Failed to upload banner"
-        });
+       next(err)
     }
 };
 
