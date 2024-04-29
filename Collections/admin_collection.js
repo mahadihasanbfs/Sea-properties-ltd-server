@@ -15,8 +15,9 @@ const client = new MongoClient(uri, {
 const blog_collection = client.db('content').collection("blogs");
 const newsletter_collection = client.db('content').collection("newsletter");
 const contact_collection = client.db('content').collection("contact");
+const banner_collection = client.db('content').collection("banner");
 const project_collection = client.db('projects').collection("project");
 const installment_collection = client.db('projects').collection("installment");
 const booking_collection = client.db('projects').collection("booking");
-
-module.exports = { blog_collection, project_collection, installment_collection, newsletter_collection, contact_collection, booking_collection };
+ 
+module.exports = { blog_collection, project_collection, installment_collection, newsletter_collection, contact_collection, booking_collection, banner_collection};
