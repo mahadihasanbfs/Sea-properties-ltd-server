@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 const {
   add_blog,
   update_blog,
@@ -57,6 +58,8 @@ const {
   edit_land_registration,
   add_land_registration } = require('../Modules/Admin/user_history')
 
+
+const { add_banner, update_banner, get_all_banners, get_banner_by_id, delete_banner } = require('../Modules/Admin/Banner');
 //blogs router:
 
 router.post("/blog/add", add_blog);
@@ -115,6 +118,11 @@ router.put("/edit-land-registration", edit_land_registration)
 
 
 
-
+//banner router
+router.post('/banner/add', add_banner);
+router.put('/banner/update', update_banner);
+router.get('/banner/banners', get_all_banners)
+router.get('/banner/get-banner', get_banner_by_id);
+router.delete('/banner/delete', delete_banner);
 
 module.exports = router;
