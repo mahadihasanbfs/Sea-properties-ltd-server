@@ -103,9 +103,6 @@ const get_installment_by_email = async (req, res, next) => {
   }
 };
 
-
-
-
 const delete_installment = async (req, res, next) => {
   const id = req.query.installment_id;
 
@@ -140,7 +137,7 @@ const get_all_installments = async (req, res, next) => {
     const result = await installment_collection
       .aggregate([
         { $addFields: { installmentNumber: { $toInt: "$installment" } } }, // Convert installment to a number
-        { $sort: { email: 1, installmentNumber: 1 } }, // Sort by email and then by installment
+        { $sort: { _id: -1, email: 1, installmentNumber: 1 } }, // Sort by email and then by installment
       ])
       .toArray();
 
