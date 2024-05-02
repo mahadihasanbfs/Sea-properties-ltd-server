@@ -90,11 +90,12 @@ router.delete("/news-letter/delete-by-id", delete_newsletter_by_id);
 router.post("/news-letter/add", create_newsletter);
 
 //booking router
+router.delete("/booking/delete", delete_booking);
 router.post("/booking/add", add_booking);
 router.put("/booking/update", update_booking);
 router.get("/booking/bookings", get_all_bookings);
 router.get("/booking/get-booking", get_booking_by_id);
-router.delete("/booking/delete", delete_booking);
+
 
 ///!  contact
 
@@ -127,15 +128,8 @@ router.get('/banner/get-banner', get_banner_by_id);
 router.delete('/banner/delete', delete_banner);
 
 
-// add_news_events,
-//     update_news_events,
-//     get_all_news_events,
-//     delete_news_event_by_id,
-//     get_news_events_events_by_id
-
-//news events 
-router.get('/get-news-events-by-id',  get_news_events_events_by_id)
-router.get('/news-events',get_all_news_events )
+router.get('/get-news-events-by-id', get_news_events_events_by_id)
+router.get('/news-events', get_all_news_events)
 router.post('/add-news-events', add_news_events)
 router.put('/update_news_event', update_news_events)
 router.delete('/delete_news_event', delete_news_event_by_id)

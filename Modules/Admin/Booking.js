@@ -73,21 +73,15 @@ const get_booking_by_id = async (req, res, next) => {
 
 const delete_booking = async (req, res, next) => {
     const id = req.query.booking_id;
+    console.log(id);
 
     try {
-        const result = await booking_collection.deleteOne({ _id: new ObjectId(id) });
+        await booking_collection.deleteOne({ _id: id });
 
-        if (result.deletedCount > 0) {
-            res.send({
-                status: true,
-                message: "Booking deleted successfully"
-            });
-        } else {
-            res.status(404).send({
-                status: false,
-                message: "Booking not found"
-            });
-        }
+        res.send({
+            status: true,
+            message: "Booking deleted successfully"
+        });
     } catch (err) {
         res.status(500).send({
             status: false,
