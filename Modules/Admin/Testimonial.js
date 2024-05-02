@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { testimonial_collection } = require('../../Collections/admin_collection');
 
 // Add a testimonial
@@ -25,7 +26,7 @@ const get_testimonials = async (req, res, next) => {
 const delete_testimonial = async (req, res, next) => {
     try {
         const testimonialId = req.params.id; // Assuming the ID is provided as a route parameter
-        const result = await testimonial_collection.deleteOne({ _id: ObjectId(testimonialId) });
+        const result = await testimonial_collection.deleteOne({ _id: new ObjectId(testimonialId) });
         res.send(result);
     } catch (error) {
         next(error);

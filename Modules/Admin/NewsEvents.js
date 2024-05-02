@@ -1,6 +1,7 @@
+const { ObjectId } = require("mongodb");
 const { news_events_collection } = require("../../Collections/admin_collection");
 
-const add_news_events =async (req, res, next) => {
+const add_news_events = async (req, res, next) => {
     const body = req.body;
     try {
         const result = await news_events_collection.insertOne(body);
@@ -16,7 +17,7 @@ const add_news_events =async (req, res, next) => {
     }
 };
 
-const update_news_events = async(req,res,next)=>{
+const update_news_events = async (req, res, next) => {
     const events_id = req.query.id
     const body = req.body
     try {
@@ -31,8 +32,9 @@ const update_news_events = async(req,res,next)=>{
     }
 }
 
-const delete_news_event_by_id = async(req,res,next)=>{
-    const id = req.query.id 
+const delete_news_event_by_id = async (req, res, next) => {
+    const id = req.query.id
+    console.log(id);
     try {
         const result = await news_events_collection.deleteOne({ _id: new ObjectId(id) });
         res.send({
@@ -45,7 +47,7 @@ const delete_news_event_by_id = async(req,res,next)=>{
 }
 
 
-const get_all_news_events =async(req,res,next)=>{
+const get_all_news_events = async (req, res, next) => {
     try {
         const data = await news_events_collection.find().toArray();
         res.send({
@@ -54,12 +56,12 @@ const get_all_news_events =async(req,res,next)=>{
             data: data
         });
     } catch (error) {
-       next(error) 
+        next(error)
     }
 }
 
 
-const get_news_events_events_by_id = async(req,res,next)=>{
+const get_news_events_events_by_id = async (req, res, next) => {
     const id = req.query.id
     try {
         const data = await news_events_collection.findOne({ _id: new ObjectId(id) });
@@ -69,7 +71,7 @@ const get_news_events_events_by_id = async(req,res,next)=>{
             data: data
         });
     } catch (error) {
-       next(error) 
+        next(error)
     }
 }
 
