@@ -25,7 +25,7 @@ const get_testimonials = async (req, res, next) => {
 // Delete a testimonial by ID
 const delete_testimonial = async (req, res, next) => {
     try {
-        const testimonialId = req.params.id; // Assuming the ID is provided as a route parameter
+        const testimonialId = req.query.testimonialId; // Assuming the ID is provided as a route parameter
         const result = await testimonial_collection.deleteOne({ _id: new ObjectId(testimonialId) });
         res.send(result);
     } catch (error) {
