@@ -43,33 +43,49 @@ const update_project = async (req, res, next) => {
 };
 
 const get_project_by_id = async (req, res, next) => {
-    const id = req.query.project_id;
-
     try {
+        // Sanitize input: Ensure that the project name is properly formatted
+        const id = req.query.project_id ? req.query.project_id.trim() : '';
+
+        if (!id) {
+            // If project name is not provided, return a 400 Bad Request response
+            return res.status(400).send({
+                status: false,
+                message: "Project name is required"
+            });
+        }
+
+        // Define aggregation pipeline to match project by name
         const pipeline = [
-            { $match: { _id: new ObjectId(id) } }
+            { $match: { name: id } }
         ];
 
+        // Execute aggregation pipeline
         const result = await project_collection.aggregate(pipeline).toArray();
 
         if (result.length > 0) {
-            res.send({
+            // If project found, return it
+            return res.send({
                 status: true,
                 data: result[0]
             });
         } else {
-            res.status(404).send({
+            // If project not found, return 404 response
+            return res.status(404).send({
                 status: false,
                 message: "Project not found"
             });
         }
     } catch (err) {
-        res.status(500).send({
+        // If an error occurs, return a 500 response with error message
+        console.error("Failed to fetch project:", err);
+        return res.status(500).send({
             status: false,
             message: "Failed to fetch project"
         });
     }
 };
+
 
 const delete_project = async (req, res, next) => {
     const id = req.query.project_id;
