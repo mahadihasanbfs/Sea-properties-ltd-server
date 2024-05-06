@@ -3,18 +3,15 @@ const { blog_collection } = require("../../Collections/admin_collection");
 
 const add_blog = async (req, res, next) => {
     const body = req.body;
-    console.log("🚀 ~ file: Blog.js:6 ~ constadd_blog= ~ body:", body)
    
     try {
         const result = await blog_collection.insertOne(body);
-        console.log("🚀 ~ file: Blog.js:9 ~ constadd_blog= ~ result:", result)
         res.send({
             status: true,
             message: "Your blog uploaded successfully"
         });
     } catch (err) {
-        console.log("🚀 ~ file: Blog.js:14 ~ constadd_blog= ~ err:", err)
-        
+
         res.status(500).send({
             status: false,
             message: "Failed to upload blog"
@@ -49,11 +46,11 @@ const update_blog = async (req, res, next) => {
 };
 
 const get_blog_by_id = async (req, res, next) => {
-    const id = req.query.blog_id;
-
+    const id = decodeURIComponent(req.query.blog_id);
+    console.log(id);
     try {
         const pipeline = [
-            { $match: { _id: new ObjectId(id) } }
+            { $match: { name: id } }
         ];
 
         const result = await blog_collection.aggregate(pipeline).toArray();

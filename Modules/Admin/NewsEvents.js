@@ -64,7 +64,7 @@ const get_all_news_events = async (req, res, next) => {
 const get_news_events_events_by_id = async (req, res, next) => {
     const id = req.query.id
     try {
-        const data = await news_events_collection.findOne({ _id: new ObjectId(id) });
+        const data = await news_events_collection.findOne({title: decodeURIComponent(id) });
         res.send({
             status: true,
             message: "News Events Found Successfully",
