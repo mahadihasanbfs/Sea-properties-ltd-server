@@ -56,7 +56,7 @@ const {
   get_user_land,
   delete_land_registration,
   edit_land_registration,
-  get_user_all_booking
+  get_user_all_booking,
   add_land_registration } = require('../Modules/Admin/user_history')
 
 
