@@ -100,6 +100,15 @@ const edit_land_registration = async (req, res, next) => {
     }
 }
 
+const get_user_all_booking =  async (req, res, next) => {
+    const email = req.query.email
+    const booking = await land_registration_collection.find({email: email}).toArray()
+    res.send({
+         status: true,
+        data:booking
+    })
+}
+
 
 module.exports = {
     get_serialized_booking,
@@ -108,5 +117,6 @@ module.exports = {
     get_user_land,
     delete_land_registration,
     edit_land_registration,
-    add_land_registration
+    add_land_registration,
+    get_user_all_booking
 };
