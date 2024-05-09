@@ -56,6 +56,7 @@ const {
   get_user_land,
   delete_land_registration,
   edit_land_registration,
+  get_user_all_booking
   add_land_registration } = require('../Modules/Admin/user_history')
 
 
@@ -112,6 +113,7 @@ router.delete('/testimonial', delete_testimonial)
 router.get('/serial-number', get_serialized_booking)
 router.delete("/delete-land-registration", delete_land_registration)
 
+router.get('/get-user-booking', get_user_all_booking)
 router.post('/add-land-registration', add_land_registration)
 router.get("/all-land-registration", get_all_land)
 router.get("/user-land-registration", get_user_land)
