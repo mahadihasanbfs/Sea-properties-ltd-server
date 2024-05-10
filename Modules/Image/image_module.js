@@ -8,7 +8,7 @@ const upload_image = async (req, res, next) => {
         const fileType = req.file.mimetype.startsWith('image') ? 'jpg' : 'pdf';
         const result = await image_collection.insertOne({ file: fileBuffer, fileType });
 
-        const fileUrl = `https://sea-properties-server.vercel.app/api/v1/image/${result.insertedId}.${fileType}`;
+        const fileUrl = `https://backend.seapropertiesltd.com.bd/api/v1/image/${result.insertedId}.${fileType}`;
 
         res.send({ imageUrl: fileUrl });
     } catch (err) {
