@@ -3,6 +3,9 @@ const { project_collection } = require('../../Collections/admin_collection');
 
 const add_project = async (req, res, next) => {
     const body = req.body;
+    const name = body.name 
+    body.sku = name.toLowerCase().replace(' ', '_');
+
     try {
         const result = await project_collection.insertOne(body);
         res.send({
@@ -20,6 +23,8 @@ const add_project = async (req, res, next) => {
 const update_project = async (req, res, next) => {
     const id = req.query.project_id;
     const update = req.body;
+    const name = update.name 
+    update.sku = name.toLowerCase().replace(' ', '_');
 
     try {
         const result = await project_collection.updateOne({ _id: new ObjectId(id) }, { $set: update });
@@ -45,7 +50,7 @@ const update_project = async (req, res, next) => {
 const get_project_by_id = async (req, res, next) => {
     try {
         // Sanitize input: Ensure that the project name is properly formatted
-        const id = req.query.project_id ? req.query.project_id.trim() : '';
+        const id = req.query.project_id ;
 
         if (!id) {
             // If project name is not provided, return a 400 Bad Request response
@@ -57,7 +62,7 @@ const get_project_by_id = async (req, res, next) => {
 
         // Define aggregation pipeline to match project by name
         const pipeline = [
-            { $match: { name: id } }
+            { $match: { sku: id } }
         ];
 
         // Execute aggregation pipeline
