@@ -24,8 +24,11 @@ const upload_image = async (req, res, next) => {
         const fileType = req.file.mimetype.startsWith('image') ? 'jpg' : 'pdf';
         // Compress the image using sharp
         const compressedImageBuffer = await sharp(imageBuffer)
-            .resize({ width: 800 }) // Resize the image to a width of 800 pixels, maintaining aspect ratio
-            .jpeg({ quality: 100 }) // Compress the image to 80% quality
+            .resize({ width: 600 }) // Resize the image to a width of 600 pixels, maintaining aspect ratio
+            .jpeg({
+                quality: 70, // Compress the image to 70% quality
+                chromaSubsampling: '4:4:4' // Use 4:4:4 chroma subsampling for better color retention
+            })
             .toBuffer();
 
         // Create data object
