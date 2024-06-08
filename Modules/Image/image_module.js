@@ -25,7 +25,7 @@ const upload_image = async (req, res, next) => {
         // Compress the image using sharp
         const compressedImageBuffer = await sharp(imageBuffer)
             .resize({ width: 800 }) // Resize the image to a width of 800 pixels, maintaining aspect ratio
-            .jpeg({ quality: 80 }) // Compress the image to 80% quality
+            .jpeg({ quality: 100 }) // Compress the image to 80% quality
             .toBuffer();
 
         // Create data object
