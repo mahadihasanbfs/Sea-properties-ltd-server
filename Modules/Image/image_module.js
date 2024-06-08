@@ -1,20 +1,48 @@
 const { ObjectId } = require("mongodb");
 const { image_collection } = require("../../Collections/ImageCollection");
+const sharp = require("sharp");
+
+
+// const upload_image = async (req, res, next) => {
+//     try {
+//         const fileBuffer = req.file.buffer;
+//         const fileType = req.file.mimetype.startsWith('image') ? 'jpg' : 'pdf';
+//         const result = await image_collection.insertOne({ file: fileBuffer, fileType });
+
+//         const fileUrl = `https://backend.seapropertiesltd.com.bd/api/v1/image/${result.insertedId}.${fileType}`;
+
+//         res.send({ imageUrl: fileUrl });
+//     } catch (err) {
+//         next(err);
+//     }
+// };
 
 
 const upload_image = async (req, res, next) => {
     try {
-        const fileBuffer = req.file.buffer;
+        const imageBuffer = req.file.buffer;
         const fileType = req.file.mimetype.startsWith('image') ? 'jpg' : 'pdf';
-        const result = await image_collection.insertOne({ file: fileBuffer, fileType });
+        // Compress the image using sharp
+        const compressedImageBuffer = await sharp(imageBuffer)
+            .resize({ width: 800 }) // Resize the image to a width of 800 pixels, maintaining aspect ratio
+            .jpeg({ quality: 80 }) // Compress the image to 80% quality
+            .toBuffer();
 
+        // Create data object
+        let data = { image: compressedImageBuffer };
+
+        const result = await image_collection.insertOne(data);
+
+        // Construct image URL
         const fileUrl = `https://backend.seapropertiesltd.com.bd/api/v1/image/${result.insertedId}.${fileType}`;
 
         res.send({ imageUrl: fileUrl });
     } catch (err) {
+        // Pass error to the error handling middleware
         next(err);
     }
-};
+}
+
 
 const get_image_by_id = async (req, res, next) => {
     try {
