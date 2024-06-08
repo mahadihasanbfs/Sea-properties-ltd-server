@@ -44,26 +44,49 @@ const upload_image = async (req, res, next) => {
 }
 
 
+// const get_image_by_id = async (req, res, next) => {
+//     try {
+//         let fileId = req.params.id;
+//         fileId = fileId.replace(/\.[^/.]+$/, "");
+
+//         const fileDoc = await image_collection.findOne({ _id: new ObjectId(fileId) });
+
+//         if (!fileDoc) {
+//             res.status(404).json({ error: 'File not found' });
+//         } else {
+//             const fileType = fileDoc.fileType;
+//             const contentType = fileType === 'jpg' ? 'image/jpeg' : 'application/pdf';
+//             res.contentType(contentType);
+//             const fileBuffer = Buffer.from(fileDoc.file.buffer, 'base64');
+//             res.status(200).send(fileBuffer);
+//         }
+//     } catch (err) {
+//         console.error('Error in GetFileByID:', err);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// };
+
 const get_image_by_id = async (req, res, next) => {
     try {
-        let fileId = req.params.id;
-        fileId = fileId.replace(/\.[^/.]+$/, "");
+        let imageId = req.params.id;
+        imageId = imageId.replace(/\.[^/.]+$/, "");
 
-        const fileDoc = await image_collection.findOne({ _id: new ObjectId(fileId) });
+        const imageDoc = await image_collection.findOne({ _id: new ObjectId(imageId) });
 
-        if (!fileDoc) {
-            res.status(404).json({ error: 'File not found' });
+        if (!imageDoc) {
+            res.status(404).json({ error: 'Image not found' });
         } else {
-            const fileType = fileDoc.fileType;
-            const contentType = fileType === 'jpg' ? 'image/jpeg' : 'application/pdf';
-            res.contentType(contentType);
-            const fileBuffer = Buffer.from(fileDoc.file.buffer, 'base64');
-            res.status(200).send(fileBuffer);
+            res.contentType('image/jpeg');
+            const imageBuffer = Buffer.from(imageDoc.image.buffer, 'base64');
+            res.status(200).send(imageBuffer);
         }
     } catch (err) {
-        console.error('Error in GetFileByID:', err);
+        console.error('Error in GetImageByID:', err);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-};
+}
+
+
+
 
 module.exports = { upload_image, get_image_by_id };
