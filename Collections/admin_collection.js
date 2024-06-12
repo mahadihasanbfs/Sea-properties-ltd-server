@@ -16,6 +16,7 @@ const project_collection = client.db("projects").collection("project");
 const installment_collection = client.db("projects").collection("installment");
 const booking_collection = client.db("projects").collection("booking");
 const testimonial_collection= client.db("projects").collection("testimonial");
+const land_collection= client.db("projects").collection("land");
 const serial_number_collection = client.db("projects").collection("serial")
 const land_registration_collection = client.db("projects").collection("land_registration")
 const banner_collection = client.db('content').collection("banner");
@@ -32,6 +33,7 @@ module.exports = {
   serial_number_collection,
   land_registration_collection,
   banner_collection,
-  news_events_collection
+  news_events_collection,
+  land_collection
 };
  

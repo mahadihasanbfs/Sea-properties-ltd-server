@@ -62,6 +62,7 @@ const {
 
 const { add_banner, update_banner, get_all_banners, get_banner_by_id, delete_banner } = require('../Modules/Admin/Banner');
 const { get_all_news_events, add_news_events, update_news_events, delete_news_event_by_id, get_news_events_events_by_id } = require("../Modules/Admin/NewsEvents");
+const { delete_land, get_land_by_id, get_all_lands, update_land, add_land } = require("../Modules/Admin/Land");
 //blogs router:
 
 router.post("/blog/add", add_blog);
@@ -135,6 +136,14 @@ router.get('/news-events', get_all_news_events)
 router.post('/add-news-events', add_news_events)
 router.put('/update_news_event', update_news_events)
 router.delete('/delete_news_event', delete_news_event_by_id)
+
+
+// land router
+router.post("/land/add", add_land);
+router.put("/land/update", update_land);
+router.get("/land/lands", get_all_lands);
+router.get("/land/get-land", get_land_by_id);
+router.delete("/land/delete", delete_land);
 
 
 module.exports = router;
