@@ -2,189 +2,192 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation</title>
-    <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Favicon and Meta Tags -->
-    <link rel="icon" href="favion.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favion.ico" type="image/x-icon">
-    <meta name="description" content="API Documentation for your website">
-    <meta name="keywords" content="API, Documentation, Endpoint">
-    <meta name="author" content="Bright Future Soft">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>API Documentation</title>
+      <!-- Include Tailwind CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <!-- Favicon and Meta Tags -->
+      <link rel="icon" href="./favion.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="./favion.ico" type="image/x-icon">
+      <meta name="description" content="API Documentation for your website">
+      <meta name="keywords" content="API, Documentation, Endpoint">
+      <meta name="author" content="Bright Future Soft">
 </head>
 
 <body class="bg-gray-100">
 
-    <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-4">API Documentation</h1>
+      <div class="container mx-auto py-8">
+            <h1 class="text-3xl font-bold mb-4">API Documentation</h1>
 
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div class="px-4 py-5 sm:px-6">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">API Endpoint 1</h3>
-                <p class="mt-1 max-w-2xl text-sm text-gray-500">Description of API Endpoint 1.</p>
-            </div>
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                  <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">API Endpoint 1</h3>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">Description of API Endpoint 1.</p>
+                  </div>
 
-            <div class="border-t border-gray-200">
-                <dl>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Request Method</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">Method</dd>
-                        <dt class="mt-1 text-sm text-gray-900 sm:col-span-2">Api</dt>
-                    </div>
+                  <div class="border-t border-gray-200">
+                        <dl>
+                              <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Request Method</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">Method</dd>
+                                    <dt class="mt-1 text-sm text-gray-900 sm:col-span-2">Api</dt>
+                              </div>
 
-                    <!-- Blog Routes -->
-                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt>
-                            Blogs
-                        </dt>
-                        <dd class="text-white">query = blog_id={}</dd>
+                              <!-- Blog Routes -->
+                              <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt>
+                                          Blogs
+                                    </dt>
+                                    <dd class="text-white">query = blog_id={}</dd>
 
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Add Blog</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/add</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Update Blog</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/update</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get All Blogs</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/blogs</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get Blog By ID</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/get-blog</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Delete Blog</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/delete</code>
-                    </div>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Add Blog</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/add</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Update Blog</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/update</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get All Blogs</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/blogs</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get Blog By ID</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/get-blog</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Delete Blog</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/blog/delete</code>
+                              </div>
 
-                    <!-- Project Routes -->
-                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        Project
-                        <dd class="text-white">query = project_id={}</dd>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Add Project</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/add</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Update Project</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/update</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get All Projects</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/projects</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get Project By ID</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/get-project</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Delete Project</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/delete</code>
-                    </div>
+                              <!-- Project Routes -->
+                              <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    Project
+                                    <dd class="text-white">query = project_id={}</dd>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Add Project</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/add</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Update Project</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/update</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get All Projects</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/projects</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get Project By ID</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/get-project</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Delete Project</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/project/delete</code>
+                              </div>
 
-                    <!-- Installment Routes -->
-                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        Installment
-                        <dd class="text-white">query = installment_id={}</dd>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Add Installment</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/add</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Update Installment</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/update</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get All Installments</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/installments</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get Installment By ID</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/get-installment</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Delete Installment</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/delete</code>
-                    </div>
+                              <!-- Installment Routes -->
+                              <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    Installment
+                                    <dd class="text-white">query = installment_id={}</dd>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Add Installment</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/add</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Update Installment</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/update</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get All Installments</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code
+                                          class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/installments</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get Installment By ID</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code
+                                          class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/get-installment</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Delete Installment</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/installment/delete</code>
+                              </div>
 
-                    <!-- Newsletter Routes -->
-                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        Newsletter
-                        <dd class="text-white">query = news-letter_id={}</dd>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Add Newsletter</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/add</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Delete Newsletter By ID</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/delete-by-id</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get All Newsletters</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/get</code>
-                    </div>
+                              <!-- Newsletter Routes -->
+                              <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    Newsletter
+                                    <dd class="text-white">query = news-letter_id={}</dd>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Add Newsletter</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/add</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Delete Newsletter By ID</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                                    <code
+                                          class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/delete-by-id</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get All Newsletters</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/news-letter/get</code>
+                              </div>
 
-                    <!-- Booking Routes -->
-                    <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        Booking
-                        <dd class="text-white">query = booking_id={}</dd>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Add Booking</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/add</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Update Booking</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/update</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get All Bookings</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/bookings</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Get Booking By ID</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/get-booking</code>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Delete Booking</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
-                        <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/delete</code>
-                    </div>
-                </dl>
-            </div>
+                              <!-- Booking Routes -->
+                              <div class="bg-gray-500 px-4 py-2 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    Booking
+                                    <dd class="text-white">query = booking_id={}</dd>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Add Booking</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">POST</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/add</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Update Booking</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">PUT</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/update</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get All Bookings</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/bookings</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Get Booking By ID</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">GET</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/get-booking</code>
+                              </div>
+                              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Delete Booking</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-1">DELETE</dd>
+                                    <code class="mt-1 text-sm text-gray-900 sm:col-span-2">/booking/delete</code>
+                              </div>
+                        </dl>
+                  </div>
 
-            <!-- <div class="border-t border-gray-200">
+                  <!-- <div class="border-t border-gray-200">
                 <dl>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Request Method</dt>
@@ -280,11 +283,11 @@
                     </div>
                 </dl>
             </div> -->
-        </div>
+            </div>
 
-        <!-- Add more API endpoints as needed -->
+            <!-- Add more API endpoints as needed -->
 
-    </div>
+      </div>
 
 </body>
 
