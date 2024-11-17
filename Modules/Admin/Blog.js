@@ -3,7 +3,7 @@ const { blog_collection } = require("../../Collections/admin_collection");
 
 const add_blog = async (req, res, next) => {
       const body = req.body;
-      body.sku = body.title.toLowerCase().replace(/\s+/g, '_');
+      body.sku = body?.name?.toLowerCase().replace(/\s+/g, '_');
 
 
       try {
