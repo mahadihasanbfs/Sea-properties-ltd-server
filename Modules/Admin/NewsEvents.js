@@ -36,7 +36,7 @@ const update_news_events = async (req, res, next) => {
 
 const delete_news_event_by_id = async (req, res, next) => {
       const id = req.query.id
-      console.log(id);
+
       try {
             const result = await news_events_collection.deleteOne({ _id: new ObjectId(id) });
             res.send({
@@ -65,7 +65,7 @@ const get_all_news_events = async (req, res, next) => {
 
 const get_news_events_events_by_id = async (req, res, next) => {
       const id = req.query.id
-      console.log(id);
+
       try {
             const data = await news_events_collection.findOne({ title: decodeURIComponent(id) });
             res.send({

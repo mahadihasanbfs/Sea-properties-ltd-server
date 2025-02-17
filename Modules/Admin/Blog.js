@@ -24,7 +24,7 @@ const add_blog = async (req, res, next) => {
 const update_blog = async (req, res, next) => {
       const id = req.query.blog_id;
       const update = req.body;
-      console.log(id);
+
 
       try {
             const result = await blog_collection.updateOne({ _id: new ObjectId(id) }, { $set: { ...update } });
@@ -49,7 +49,7 @@ const update_blog = async (req, res, next) => {
 
 const get_blog_by_id = async (req, res, next) => {
       const id = decodeURIComponent(req.query.blog_id);
-      console.log(id);
+
       try {
             const pipeline = [
                   { $match: { name: id } }

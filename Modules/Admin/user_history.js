@@ -32,10 +32,10 @@ const add_land_registration = async (req, res, next) => {
 
 
 const get_preview = async (req, res, next) => {
-    console.log(req.query.id, '*******')
+
     try {
         const query = { _id: new ObjectId(req.query.id) };
-        console.log(query, '******')
+
         // Corrected object property name
         const data = await land_registration_collection.findOne(query);
         res.send({ status: true, data: data });

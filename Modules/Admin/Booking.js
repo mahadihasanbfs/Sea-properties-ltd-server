@@ -73,7 +73,7 @@ const get_booking_by_id = async (req, res, next) => {
 
 const delete_booking = async (req, res, next) => {
     const id = req.query.booking_id;
-    console.log(id);
+ 
 
     try {
         await booking_collection.deleteOne({ _id: id });

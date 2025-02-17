@@ -51,7 +51,6 @@ const create_newsletter = async (req, res, next) => {
     email: newsletterData?.email,
   });
 
-  console.log(iExist);
 
   if (iExist) {
     return res.send({
@@ -61,7 +60,7 @@ const create_newsletter = async (req, res, next) => {
   }
   try {
     const result = await newsletter_collection.insertOne(newsletterData);
-    console.log(result);
+
     res.send({
       status: true,
       message: "Subscribed successfully",

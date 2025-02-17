@@ -111,7 +111,7 @@ const delete_installment = async (req, res, next) => {
       _id: new ObjectId(id),
     });
 
-    console.log(id, "id", result);
+
 
     if (result.deletedCount > 0) {
       res.send({
