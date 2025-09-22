@@ -119,7 +119,10 @@ const delete_project = async (req, res, next) => {
 
 const get_all_projects = async (req, res, next) => {
     try {
-        const result = await project_collection.find({}).toArray();
+       const result = await project_collection
+                  .find({})
+                  .sort({ date: -1 }) // সর্বশেষ data আগে আসবে
+                  .toArray();
 
         res.send({
             status: true,
