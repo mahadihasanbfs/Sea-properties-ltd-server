@@ -63,6 +63,7 @@ const {
 const { add_banner, update_banner, get_all_banners, get_banner_by_id, delete_banner } = require('../Modules/Admin/Banner');
 const { get_all_news_events, add_news_events, update_news_events, delete_news_event_by_id, get_news_events_events_by_id } = require("../Modules/Admin/NewsEvents");
 const { delete_land, get_land_by_id, get_all_lands, update_land, add_land } = require("../Modules/Admin/Land");
+const { add_employee, get_all_employees, get_employee_by_id, delete_employee, update_employee } = require("../Modules/Employee/EmployeeController");
 //blogs router:
 
 router.post("/blog/add", add_blog);
@@ -144,6 +145,19 @@ router.put("/land/update", update_land);
 router.get("/land/lands", get_all_lands);
 router.get("/land/get-land", get_land_by_id);
 router.delete("/land/delete", delete_land);
+
+router.post("/employee", add_employee);
+router.get("/employee", (req, res, next) => {
+  if (req.query.employeeId || req.query.id) {
+    return get_employee_by_id(req, res, next);
+  }
+  return get_all_employees(req, res, next);
+});
+router.get("/employee/:id", get_employee_by_id);
+router.put("/employee", update_employee);
+router.put("/employee/:id", update_employee);
+router.delete("/employee", delete_employee);
+router.delete("/employee/:id", delete_employee);
 
 
 module.exports = router;

@@ -7,6 +7,7 @@ const auth_controller = require("./Modules/Authentication/AthenticationRouter");
 const admin_controller = require("./Router/AdminRouter");
 const user_controller = require("./Router/UserController");
 const image_controller = require("./Modules/Image/ImageRouter");
+const employee_controller = require("./Modules/Employee/EmployeeRouter");
 // const AuthRouter = require('./Modules/Auth/AuthRouter');
 
 app.use(cors());
@@ -25,6 +26,7 @@ app.use("/api/v1/users", auth_controller);
 app.use("/api/v1/admin", admin_controller);
 app.use("/api/v1/image", image_controller);
 app.use("/api/v1/user", user_controller);
+app.use("/api/v1/employee", employee_controller);
 
 // Error Handling Middleware
 app.use((req, res, next) => {
