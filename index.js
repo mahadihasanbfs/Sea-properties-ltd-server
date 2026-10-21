@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
 const port = 5001;
 const cors = require("cors");
+const compression = require("compression");
 const auth_controller = require("./Modules/Authentication/AthenticationRouter");
 const admin_controller = require("./Router/AdminRouter");
 const user_controller = require("./Router/UserController");
@@ -10,8 +12,10 @@ const image_controller = require("./Modules/Image/ImageRouter");
 const employee_controller = require("./Modules/Employee/EmployeeRouter");
 // const AuthRouter = require('./Modules/Auth/AuthRouter');
 
+app.use(compression());
 app.use(cors());
 app.use(express.json());
+app.use(require("./Modules/Image/image_module").hide_cloudinary);
 
 app.get("/", (req, res) => {
       res.sendFile(path.join(__dirname, "index.html"));

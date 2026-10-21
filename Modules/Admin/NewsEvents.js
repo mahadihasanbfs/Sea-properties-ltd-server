@@ -51,7 +51,7 @@ const delete_news_event_by_id = async (req, res, next) => {
 
 const get_all_news_events = async (req, res, next) => {
       try {
-            const data = await news_events_collection.find().toArray();
+            const data = await news_events_collection.find({ title: { $exists: true } }).sort({ _id: -1 }).toArray();
             res.send({
                   status: true,
                   message: "News Events Found Successfully",
@@ -67,7 +67,12 @@ const get_news_events_events_by_id = async (req, res, next) => {
       const id = req.query.id
 
       try {
-            const data = await news_events_collection.findOne({ title: decodeURIComponent(id) });
+            const wanted = String(id).trim();
+            const escaped = wanted.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            // Titles may carry stray spaces/case differences, so fall back to a loose match.
+            const data =
+                  (await news_events_collection.findOne({ title: wanted })) ||
+                  (await news_events_collection.findOne({ title: new RegExp(`^\\s*${escaped}\\s*$`, "i") }));
             res.send({
                   status: true,
                   message: "News Events Found Successfully",

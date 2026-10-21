@@ -119,7 +119,7 @@ const delete_project = async (req, res, next) => {
 
 const get_all_projects = async (req, res, next) => {
     try {
-        const result = await project_collection.find({}).toArray();
+        const result = await project_collection.find({}).sort({ _id: -1 }).toArray();
 
         res.send({
             status: true,

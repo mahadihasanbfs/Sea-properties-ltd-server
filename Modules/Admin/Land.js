@@ -120,7 +120,7 @@ const delete_land = async (req, res, next) => {
 
 const get_all_lands = async (req, res, next) => {
     try {
-        const result = await land_collection.find({}).toArray();
+        const result = await land_collection.find({}).sort({ _id: -1 }).toArray();
 
         res.send({
             status: true,

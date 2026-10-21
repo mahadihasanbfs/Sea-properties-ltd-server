@@ -103,7 +103,7 @@ const delete_blog = async (req, res, next) => {
 
 const get_all_blogs = async (req, res, next) => {
       try {
-            const result = await blog_collection.find({}).toArray();
+            const result = await blog_collection.find({}).sort({ _id: -1 }).toArray();
 
             res.send({
                   status: true,

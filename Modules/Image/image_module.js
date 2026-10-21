@@ -1,61 +1,81 @@
-const mysql = require("mysql2");
+const cloudinary = require("../../cloudinary_config");
 
-// MySQL Database Connection
-const db = mysql.createConnection({
-      host: "podma-bd-cp1.hostever.com",
-      user: "seaprope_bright_future_soft",
-      password: "bright_future_soft",
-      database: "seaprope_images"
-});
+const legacyMap = require("./legacy_image_map.json");
 
+const CLOUD = "lxi4x7zb";
+const PROD_BASE = "https://backend.seapropertiesltd.com.bd";
 
+// Public origin of this API, used in links so Cloudinary is never exposed.
+const publicBase = (req) => (/^(localhost|127\.0\.0\.1)/.test(req.get("host")) ? `${req.protocol}://${req.get("host")}` : PROD_BASE);
 
-// Upload Image
+// Upload Image (Cloudinary)
 const upload_image = async (req, res, next) => {
       try {
-            const imageBuffer = req.file.buffer;
-            const fileType = req.file.mimetype.startsWith("image") ? "jpg" : "pdf";
-
-            // Store image in MySQL
-            const sql = "INSERT INTO images (image, fileType) VALUES (?, ?)";
-            db.query(sql, [imageBuffer, fileType], (err, result) => {
-                  if (err) {
-                        return next(err);
-                  }
-
-                  // Construct Image URL
-                  const fileUrl = `https://backend.seapropertiesltd.com.bd/api/v1/image/${result.insertId}.${fileType}`;
-                  res.json({ imageUrl: fileUrl });
+            const isImage = req.file.mimetype.startsWith("image");
+            const result = await new Promise((resolve, reject) => {
+                  cloudinary.uploader
+                        .upload_stream(
+                              { folder: "sea-properties", resource_type: isImage ? "image" : "raw" },
+                              (err, uploaded) => (err ? reject(err) : resolve(uploaded))
+                        )
+                        .end(req.file.buffer);
             });
+            // Cloudinary public_id is "sea-properties/<name>"; raw files keep their extension in it.
+            const name = isImage ? `${result.public_id.split("/").pop()}.${result.format}` : result.public_id.split("/").pop();
+            res.json({ imageUrl: `${publicBase(req)}/api/v1/image/${name}` });
       } catch (err) {
             next(err);
       }
 };
 
-// Get Image by ID
-const get_image_by_id = (req, res, next) => {
+// Serve an image from Cloudinary under our own URL: /image/<name>.<ext>?w=&h=&fit=&fmt=
+// Old numeric ids (/image/524.jpg) resolve through the legacy map.
+const get_image_by_id = async (req, res, next) => {
       try {
-            let imageId = req.params.id;
-            imageId = imageId.replace(/\.[^/.]+$/, ""); // Remove file extension
+            let name = req.params.id;
+            const legacy = legacyMap[name.replace(/\.[^/.]+$/, "")];
+            if (legacy) name = legacy.split("/").pop();
+            if (!/^[A-Za-z0-9_-]+\.[A-Za-z0-9]+$/.test(name)) return res.status(404).json({ error: "Image not found" });
 
-            const sql = "SELECT image, fileType FROM images WHERE id = ?";
-            db.query(sql, [imageId], (err, result) => {
-                  if (err) {
-                        return next(err);
-                  }
+            const isRaw = name.endsWith(".pdf");
+            const { w, h, fit, fmt } = req.query;
+            const tr = isRaw
+                  ? ""
+                  : [
+                        `f_${fmt === "jpg" ? "jpg" : "auto"}`,
+                        "q_auto",
+                        /^\d{1,4}$/.test(w) && `w_${w}`,
+                        /^\d{1,4}$/.test(h) && `h_${h}`,
+                        fit === "pad" ? "c_pad,b_white" : fit === "fill" ? "c_fill" : (w || h) && "c_limit",
+                  ].filter(Boolean).join(",") + "/";
+            const upstream = `https://res.cloudinary.com/${CLOUD}/${isRaw ? "raw" : "image"}/upload/${tr}sea-properties/${name}`;
 
-                  if (result.length === 0) {
-                        return res.status(404).json({ error: "Image not found" });
-                  }
+            const r = await fetch(upstream, { headers: { Accept: req.get("accept") || "*/*" } });
+            if (!r.ok) return res.status(404).json({ error: "Image not found" });
 
-                  const fileType = result[0].fileType === "jpg" ? "image/jpeg" : "application/pdf";
-                  res.contentType(fileType);
-                  res.status(200).send(result[0].image);
+            res.set({
+                  "Content-Type": r.headers.get("content-type"),
+                  "Cache-Control": "public, max-age=31536000, immutable",
+                  Vary: "Accept",
+                  "Access-Control-Allow-Origin": "*",
             });
+            res.send(Buffer.from(await r.arrayBuffer()));
       } catch (err) {
-            console.error("Error in GetImageByID:", err);
-            res.status(500).json({ error: "Internal Server Error" });
+            next(err);
       }
 };
 
-module.exports = { upload_image, get_image_by_id };
+// Rewrite Cloudinary links inside a JSON string to our own image URLs.
+const CLOUDINARY_LINK = /https:\/\/res\.cloudinary\.com\/lxi4x7zb\/(?:image|raw)\/upload\/(?:[^/"\s\\]*,[^/"\s\\]*\/)?(?:v\d+\/)?sea-properties\/([A-Za-z0-9_.-]+)/g;
+const hide_cloudinary = (req, res, next) => {
+      const send = res.send.bind(res);
+      res.send = (body) => {
+            if (typeof body === "string" && /json/.test(res.get("Content-Type") || "")) {
+                  body = body.replace(CLOUDINARY_LINK, (_, name) => `${publicBase(req)}/api/v1/image/${name}`);
+            }
+            return send(body);
+      };
+      next();
+};
+
+module.exports = { upload_image, get_image_by_id, hide_cloudinary };
